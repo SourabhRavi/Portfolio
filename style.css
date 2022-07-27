@@ -361,6 +361,7 @@ h1 {
     padding-top: 160px;
     padding-bottom: 160px;
     /* background-color: #121212; */
+    background-image: url(./img/skills.svg);
 }
 
 #skills .heading-wrap {
