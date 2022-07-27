@@ -113,7 +113,7 @@ a {
     color: inherit;
 }
 
-a::after {
+.nav-links::after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -132,7 +132,7 @@ li {
     margin-bottom: 10px;
 }
 
-a:hover::after {
+.nav-links:hover::after {
     width: 100%;
     left: 0;
 }
