@@ -114,7 +114,7 @@ function onResize() {
 const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");
 
-let textArray = ["Hey there! ", "Hola! ", "Namaste! ", "Bonjour! ", "Hello! "];
+let textArray = ["Hey there!", "Hola!", "Namaste!", "Bonjour!", "Hello!"];
 const typingDelay = 140;
 const erasingDelay = 100;
 const newTextDelay = 1500; // Delay between current and next text

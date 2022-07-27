@@ -225,9 +225,9 @@ ul {
 
 #hero .bottom-row-left {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
-    width: 120px;
+    width: 270px;
 }
 
 #hero .end-row {
