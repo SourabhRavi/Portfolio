@@ -113,26 +113,26 @@ a {
     color: inherit;
 }
 
-.nav-links::after {
+.nav-links a::after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
     display: block;
-    height: 4px;
+    height: 3px;
     right: 0%;
     position: absolute;
     background: #565656;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    /* transition: width 0.3s ease 0s, left 0.3s ease 0s; */
     width: 0;
 }
 
 li {
     position: relative;
-    padding: 0 0 5px;
+    padding: 0 5px 5px;
     margin-bottom: 10px;
 }
 
-.nav-links:hover::after {
+.nav-links a:hover::after {
     width: 100%;
     left: 0;
 }
