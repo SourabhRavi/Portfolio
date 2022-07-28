@@ -91,8 +91,8 @@ p {
 
 body {
     overflow-x: hidden;
-    overflow-y: scroll;
-    /* overflow-y: overlay; */
+    /* overflow-y: scroll; */
+    overflow-y: overlay;
     background: #000;
     transition: background .5s ease-in-out;
 }
