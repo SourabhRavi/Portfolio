@@ -149,15 +149,15 @@ function erase() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function () { // On DOM Load initiate the effect
+document.addEventListener("DOMContentLoaded", function () {
     if (textArray.length) setTimeout(type, newTextDelay + 250);
 });
 
-
-
-document.addEventListener('scroll', function (event) {
-    var element = event.target;
-    if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
-        document.body.style.background = window.sections[0].getAttribute('data-bg');
-    }
-});
+// document.addEventListener('scroll', function (event) {
+//     var element = event.target;
+//     if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+//         setTimeout(() => {
+//             alert("You have reached the end of the page");
+//         }, 301);
+//     }
+// });

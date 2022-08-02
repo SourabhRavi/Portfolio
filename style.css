@@ -261,7 +261,6 @@ ul {
 #whoami {
     padding-top: 160px;
     padding-bottom: 160px;
-    /* background-color: #181818; */
 }
 
 #whoami .heading-wrap {
@@ -492,20 +491,35 @@ h1 {
     margin-bottom: 40px;
 }
 
-#projects .card-item {
+#projects .card-item .view-project{
     cursor: pointer;
+    max-width: max-content;
 }
 
 #projects .card-item:nth-child(1),
 #projects .card-item:nth-child(5),
 #projects .card-item:nth-child(8) {
     border-radius: 68px 163.5px 20px 20px;
+    transition: border-radius 0.3s ease-in-out;
+}
+
+#projects .card-item:nth-child(1):hover,
+#projects .card-item:nth-child(5):hover,
+#projects .card-item:nth-child(8):hover {
+    border-radius: 68px 20px 163.5px;
 }
 
 #projects .card-item:nth-child(2),
 #projects .card-item:nth-child(3),
 #projects .card-item:nth-child(6) {
     border-radius: 68px 163.5px 163.5px 20px;
+    transition: border-radius 0.3s ease-in-out;
+}
+
+#projects .card-item:nth-child(2):hover,
+#projects .card-item:nth-child(3):hover,
+#projects .card-item:nth-child(6):hover {
+    border-radius: 20px;
 }
 
 #projects .card-item:nth-child(4),
@@ -513,8 +527,17 @@ h1 {
     border-radius: 68px 20px 163.5px;
 }
 
+#projects .card-item:nth-child(4):hover,
+#projects .card-item:nth-child(7):hover {
+    border-radius: 68px 163.5px 20px 20px;
+    transition: border-radius 0.3s ease-in-out;
+}
+
 #projects .card-item:hover {
-    background: #574059;
+    background: #f0f0f0;
+}
+
+/* #projects .card-item:hover {
     color: #dcdcdc !important;
 }
 
@@ -525,7 +548,16 @@ h1 {
 #projects .card-item:hover .main-text-wrap .heading,
 #projects .card-item:hover .main-text-wrap .sub-text {
     color: #dcdcdc !important;
+} */
+
+#projects .view-project:hover{
+    color: #574059 !important;
 }
+
+#projects .view-project:hover svg path{
+    fill: #574059 !important;
+}
+
 
 /* contact section */
 #contact {
