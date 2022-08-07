@@ -27,19 +27,6 @@ window.addEventListener('scroll', function () {
     }
 });
 
-// hello greeting
-const greeting = document.getElementById("greeting");
-const hour = new Date().getHours();
-const welcomeTypes = ["Good morning", "Good afternoon", "Good evening"];
-let welcomeText = "";
-
-if (hour < 12) welcomeText = welcomeTypes[0];
-else if (hour < 18) welcomeText = welcomeTypes[1];
-else welcomeText = welcomeTypes[2];
-
-greeting.innerHTML = welcomeText;
-
-
 // smooth scroll
 // var html = document.documentElement;
 // var body = document.body;
@@ -161,3 +148,157 @@ document.addEventListener("DOMContentLoaded", function () {
 //         }, 301);
 //     }
 // });
+
+
+//cursor effects
+//grow cursor on hover over anchor tags
+const anchorElements = document.getElementsByTagName('a');
+
+for (let i = 0; i < anchorElements.length; i++) {
+    const element = anchorElements[i];
+    element.addEventListener('mouseover', function () {
+        document.getElementsByClassName('curzr')[0].style.width = '55px';
+        document.getElementsByClassName('curzr')[0].style.height = '55px';
+    });
+    element.addEventListener('mouseleave', function () {
+        document.getElementsByClassName('curzr')[0].style.width = '25px';
+        document.getElementsByClassName('curzr')[0].style.height = '25px';
+    });
+}
+
+//glitch effect for cursor
+class GlitchEffect {
+    constructor() {
+        this.root = document.body
+        this.cursor = document.querySelector(".curzr")
+
+        this.distanceX = 0,
+            this.distanceY = 0,
+            this.pointerX = 0,
+            this.pointerY = 0,
+            this.previousPointerX = 0
+        this.previousPointerY = 0
+        this.cursorSize = 25
+        this.glitchColorB = '#00feff'
+        this.glitchColorR = '#ff4f71'
+
+        this.cursorStyle = {
+            boxSizing: 'border-box',
+            position: 'fixed',
+            top: `${this.cursorSize / -2}px`,
+            left: `${this.cursorSize / -2}px`,
+            zIndex: '2147483647',
+            width: `${this.cursorSize}px`,
+            height: `${this.cursorSize}px`,
+            backgroundColor: '#222',
+            borderRadius: '50%',
+            boxShadow: `0 0 0 ${this.glitchColorB}, 0 0 0 ${this.glitchColorR}`,
+            transition: '100ms, transform 100ms',
+            userSelect: 'none',
+            pointerEvents: 'none'
+        }
+
+        if (CSS.supports("backdrop-filter", "invert(1)")) {
+            this.cursorStyle.backdropFilter = 'invert(1)'
+            this.cursorStyle.backgroundColor = '#fff0'
+        } else {
+            this.cursorStyle.backgroundColor = '#222'
+        }
+
+        this.init(this.cursor, this.cursorStyle)
+    }
+
+    init(el, style) {
+        Object.assign(el.style, style)
+        this.cursor.removeAttribute("hidden")
+
+    }
+
+    move(event) {
+        this.previousPointerX = this.pointerX
+        this.previousPointerY = this.pointerY
+        this.pointerX = event.pageX + this.root.getBoundingClientRect().x
+        this.pointerY = event.pageY + this.root.getBoundingClientRect().y
+        this.distanceX = Math.min(Math.max(this.previousPointerX - this.pointerX, -10), 10)
+        this.distanceY = Math.min(Math.max(this.previousPointerY - this.pointerY, -10), 10)
+
+        if (event.target.localName === 'button' ||
+            event.target.localName === 'a' ||
+            event.target.onclick !== null ||
+            event.target.className.includes('curzr-hover')) {
+            this.hover()
+        } else {
+            this.hoverout()
+        }
+
+        this.cursor.style.transform = `translate3d(${this.pointerX}px, ${this.pointerY}px, 0)`
+        this.cursor.style.boxShadow = `
+      ${+this.distanceX}px ${+this.distanceY}px 0 ${this.glitchColorB}, 
+      ${-this.distanceX}px ${-this.distanceY}px 0 ${this.glitchColorR}`
+        this.stop()
+    }
+
+    hover() {
+    }
+
+    hoverout() {
+    }
+
+    click() {
+        this.cursor.style.transform += ` scale(0.75)`
+        setTimeout(() => {
+            this.cursor.style.transform = this.cursor.style.transform.replace(` scale(0.75)`, '')
+        }, 35)
+    }
+
+    stop() {
+        if (!this.moving) {
+            this.moving = true
+            setTimeout(() => {
+                this.cursor.style.boxShadow = ''
+                this.moving = false
+            }, 50)
+        }
+    }
+
+    remove() {
+        this.cursor.remove()
+    }
+}
+
+(() => {
+    const cursor = new GlitchEffect()
+    if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        document.onmousemove = function (event) {
+            cursor.move(event)
+        }
+        document.onclick = function () {
+            cursor.click()
+        }
+    } else {
+        cursor.remove()
+    }
+})()
+//cusror effects end
+
+//detect keypress
+document.getElementById('whoamicode').addEventListener('keydown', function (e) {
+
+    if (e.key == 'Enter') {
+        if (document.getElementById('whoamicode').value.trim() == "jokes") {
+            document.getElementById('whoami-graphic').setAttribute('src', './img/whoami-w-jokes.svg');
+
+            document.getElementById('whoamicode').style.borderColor = '#4BB543';
+            setTimeout(() => {
+                document.getElementById('whoamicode').style.borderColor = '#dcdcdc';
+            }, 1500);
+        }
+        else {
+            document.getElementById('whoamicode').style.borderColor = '#FF3333';
+            setTimeout(() => {
+                document.getElementById('whoamicode').style.borderColor = '#dcdcdc';
+            }, 1500);
+        }
+    }
+
+});
