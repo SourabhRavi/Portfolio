@@ -1,0 +1,63 @@
+#main .heading-wrap .description {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24.0638px;
+    line-height: 113.7%;
+    color: #272727;
+}
+#mockups{
+    padding-bottom: 100px;
+}
+
+#main .heading-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+#main .back-arrow img {
+    height: 100%;
+    width: 60px;
+}
+
+#main .inner-wrap {
+    padding: 40px 0 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#main .nav-menu {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 29.1527px;
+    line-height: 40px;
+    text-align: right;
+}
+
+/* project mockups */
+.mockup-item {
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.mockup-item img {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.pdf{
+    margin-top: 50px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24.0638px;
+    line-height: 113.7%;
+    color: #272727;
+}
+
+.pdf a:hover {
+    color: #574059;
+}

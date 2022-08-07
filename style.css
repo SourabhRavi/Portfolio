@@ -24,29 +24,6 @@
     box-sizing: border-box;
 }
 
-/* smooth scroll */
-/* .viewport {
-    overflow: hidden;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.scroll-container {
-    position: absolute;
-    overflow: hidden;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    width: 100%;
-} */
-
 /* typing greeting */
 span.cursor {
     display: inline-block;
@@ -89,9 +66,11 @@ p {
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    /* overflow-x: hidden; */
-    /* overflow-y: scroll; */
     overflow-y: overlay;
     background: #f0f0f0;
     transition: background .3s ease-out;
@@ -491,7 +470,7 @@ h1 {
     margin-bottom: 40px;
 }
 
-#projects .card-item .view-project{
+#projects .card-item .view-project {
     cursor: pointer;
     max-width: max-content;
 }
@@ -524,6 +503,7 @@ h1 {
 
 #projects .card-item:nth-child(4),
 #projects .card-item:nth-child(7) {
+    transition: border-radius 0.3s ease-in-out;
     border-radius: 68px 20px 163.5px;
 }
 
@@ -550,11 +530,11 @@ h1 {
     color: #dcdcdc !important;
 } */
 
-#projects .view-project:hover{
+#projects .view-project:hover {
     color: #574059 !important;
 }
 
-#projects .view-project:hover svg path{
+#projects .view-project:hover svg path {
     fill: #574059 !important;
 }
 
