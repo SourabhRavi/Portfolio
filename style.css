@@ -100,19 +100,6 @@ a {
     color: inherit;
 }
 
-/* .nav-links a::after {
-    background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 3px;
-    right: 0%;
-    position: absolute;
-    background: #565656;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-} */
-
 li {
     position: relative;
     padding: 0 5px 5px;
@@ -276,13 +263,27 @@ ul {
 
 #whoami input {
     padding: 10px 15px;
+    border-radius: 5px;
+}
+
+#whoami #dev {
+    font-family: 'M PLUS 1 Code';
+    opacity: 0;
+    font-size: 24px;
+    padding-left: 20px;
+    color: #7e7e7e;
+    transition: all .3s ease-in-out;
 }
 
 #whoami input:focus {
     background: #25292C;
-    border-radius: 5px;
     color: #f0f0f0;
 }
+
+/* #whoami input:hover {
+    border: 3px solid #2727272d;
+    border-radius: 5px;
+} */
 
 h1 {
     font-family: 'Noto Sans';

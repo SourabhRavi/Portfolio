@@ -1,3 +1,6 @@
+//window onload event for bg change on reload
+window.onload = onScrolle();
+
 // bg change on scroll
 window.sections = [...document.querySelectorAll('section')];
 window.lastScrollTop = window.pageYOffset;
@@ -26,129 +29,6 @@ window.addEventListener('scroll', function () {
         document.body.style.background = window.sections[0].getAttribute('data-bg');
     }
 });
-
-// smooth scroll
-// var html = document.documentElement;
-// var body = document.body;
-
-// var scroller = {
-//     target: document.querySelector("#scroll-container"),
-//     ease: 0.05, // <= scroll speed
-//     endY: 0,
-//     y: 0,
-//     resizeRequest: 1,
-//     scrollRequest: 0,
-// };
-
-// var requestId = null;
-
-// TweenLite.set(scroller.target, {
-//     rotation: 0.01,
-//     force3D: true
-// });
-
-// window.addEventListener("load", onLoad);
-
-// function onLoad() {
-//     updateScroller();
-//     window.focus();
-//     window.addEventListener("resize", onResize);
-//     document.addEventListener("scroll", onScroll);
-// }
-
-// function updateScroller() {
-
-//     var resized = scroller.resizeRequest > 0;
-
-//     if (resized) {
-//         var height = scroller.target.clientHeight;
-//         body.style.height = height + "px";
-//         scroller.resizeRequest = 0;
-//     }
-
-//     var scrollY = window.pageYOffset || html.scrollTop || body.scrollTop || 0;
-
-//     scroller.endY = scrollY;
-//     scroller.y += (scrollY - scroller.y) * scroller.ease;
-
-//     if (Math.abs(scrollY - scroller.y) < 0.05 || resized) {
-//         scroller.y = scrollY;
-//         scroller.scrollRequest = 0;
-//     }
-
-//     TweenLite.set(scroller.target, {
-//         y: -scroller.y
-//     });
-
-//     requestId = scroller.scrollRequest > 0 ? requestAnimationFrame(updateScroller) : null;
-// }
-
-// function onScroll() {
-//     scroller.scrollRequest++;
-//     if (!requestId) {
-//         requestId = requestAnimationFrame(updateScroller);
-//     }
-// }
-
-// function onResize() {
-//     scroller.resizeRequest++;
-//     if (!requestId) {
-//         requestId = requestAnimationFrame(updateScroller);
-//     }
-// }
-
-// typing greeting
-const typedTextSpan = document.querySelector(".typed-text");
-const cursorSpan = document.querySelector(".cursor");
-
-let textArray = ["Hey there!", "Hola!", "Namaste!", "Bonjour!", "Hello!"];
-const typingDelay = 140;
-const erasingDelay = 100;
-const newTextDelay = 1500; // Delay between current and next text
-let textArrayIndex = 0;
-let charIndex = 0;
-
-function type() {
-    if (charIndex < textArray[textArrayIndex].length) {
-        if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(type, typingDelay);
-    }
-    else {
-        cursorSpan.classList.remove("typing");
-        setTimeout(erase, newTextDelay);
-    }
-}
-
-function erase() {
-    if (charIndex > 0) {
-        if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(erase, erasingDelay);
-    }
-    else {
-        cursorSpan.classList.remove("typing");
-        textArrayIndex++;
-        if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-        setTimeout(type, typingDelay + 1100);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    if (textArray.length) setTimeout(type, newTextDelay + 250);
-});
-
-// document.addEventListener('scroll', function (event) {
-//     var element = event.target;
-//     if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
-//         setTimeout(() => {
-//             alert("You have reached the end of the page");
-//         }, 301);
-//     }
-// });
-
 
 //cursor effects
 //grow cursor on hover over anchor tags
@@ -282,23 +162,38 @@ class GlitchEffect {
 //cusror effects end
 
 //detect keypress
-document.getElementById('whoamicode').addEventListener('keydown', function (e) {
+document.getElementById('whoamicode').addEventListener('keydown', (e) => {
 
     if (e.key == 'Enter') {
         if (document.getElementById('whoamicode').value.trim() == "jokes") {
             document.getElementById('whoami-graphic').setAttribute('src', './img/whoami-w-jokes.svg');
 
+            document.getElementById('dev').style.opacity = '1';
+
             document.getElementById('whoamicode').style.borderColor = '#4BB543';
             setTimeout(() => {
-                document.getElementById('whoamicode').style.borderColor = '#dcdcdc';
+                document.getElementById('whoamicode').style.borderColor = 'transparent';
             }, 1500);
+
         }
         else {
             document.getElementById('whoamicode').style.borderColor = '#FF3333';
             setTimeout(() => {
-                document.getElementById('whoamicode').style.borderColor = '#dcdcdc';
+                document.getElementById('whoamicode').style.borderColor = 'transparent';
             }, 1500);
         }
     }
 
+});
+
+const removeBorder = () => {
+    document.getElementById('whoamicode').style.borderColor = 'transparent';
+}
+
+document.getElementById('whoamicode').addEventListener('mouseenter', () => {
+    document.getElementById('whoamicode').style.borderColor = '#2727272d';
+});
+
+document.getElementById('whoamicode').addEventListener('mouseleave', () => {
+    document.getElementById('whoamicode').style.borderColor = 'transparent';
 });
