@@ -40,12 +40,26 @@
 .mockup-item {
     margin-bottom: 30px;
     max-width: 100%;
+    max-height: 800px;
     width: 100%;
+    overflow: hidden !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
 }
 
 .mockup-item img {
     max-width: 100%;
     width: 100%;
+    transition: all .5s;
+    object-fit: cover;
+}
+
+.mockup-item img:hover {
+    max-width: 105%;
+    width: 105%;
+    max-height: 100%;
     border-radius: 5px;
 }
 
