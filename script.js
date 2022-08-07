@@ -56,8 +56,8 @@ class GlitchEffect {
             this.previousPointerX = 0
         this.previousPointerY = 0
         this.cursorSize = 25
-        this.glitchColorB = '#056C83'
-        this.glitchColorR = '#A8142E'
+        this.glitchColorB = '#00feff'
+        this.glitchColorR = '#ff4f71'
 
         this.cursorStyle = {
             boxSizing: 'border-box',
