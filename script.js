@@ -1,6 +1,3 @@
-//window onload event for bg change on reload
-window.onload = onScrolle();
-
 // bg change on scroll
 window.sections = [...document.querySelectorAll('section')];
 window.lastScrollTop = window.pageYOffset;
@@ -168,8 +165,10 @@ document.getElementById('whoamicode').addEventListener('keydown', (e) => {
         if (document.getElementById('whoamicode').value.trim() == "jokes") {
             document.getElementById('whoami-graphic').setAttribute('src', './img/whoami-w-jokes.svg');
 
+            // response comment
+            document.getElementById('dev').innerHTML = "// Yay! Bonus jokes unlocked!";
             document.getElementById('dev').style.opacity = '1';
-
+            
             document.getElementById('whoamicode').style.borderColor = '#4BB543';
             setTimeout(() => {
                 document.getElementById('whoamicode').style.borderColor = 'transparent';
@@ -178,6 +177,11 @@ document.getElementById('whoamicode').addEventListener('keydown', (e) => {
         }
         else {
             document.getElementById('whoamicode').style.borderColor = '#FF3333';
+
+            // response comment
+            document.getElementById('dev').innerHTML = "// Uh-oh! Try typing 'jokes'";
+            document.getElementById('dev').style.opacity = '1';
+
             setTimeout(() => {
                 document.getElementById('whoamicode').style.borderColor = 'transparent';
             }, 1500);
@@ -186,8 +190,9 @@ document.getElementById('whoamicode').addEventListener('keydown', (e) => {
 
 });
 
-const removeBorder = () => {
+const removeBorderAndComment = () => {
     document.getElementById('whoamicode').style.borderColor = 'transparent';
+    document.getElementById('dev').style.opacity = '0';
 }
 
 document.getElementById('whoamicode').addEventListener('mouseenter', () => {
@@ -197,3 +202,6 @@ document.getElementById('whoamicode').addEventListener('mouseenter', () => {
 document.getElementById('whoamicode').addEventListener('mouseleave', () => {
     document.getElementById('whoamicode').style.borderColor = 'transparent';
 });
+
+//window onload event for bg change on reload
+window.onload = onScrolle();
