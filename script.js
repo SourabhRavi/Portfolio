@@ -211,6 +211,7 @@ setTimeout(() => {
 window.onload = () => {
     onScrolle(); //for bg change corresponding to section
 
+    //remove preloader after window load
     document.getElementById('preloader').style.opacity = '0';
     setTimeout(() => {
         document.getElementById('preloader').style.display = 'none';
