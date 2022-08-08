@@ -1,3 +1,69 @@
+/* preloader */
+.spinner-container>div {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.spinner {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(90deg, #056C83, #A8142E);
+}
+
+#preloader {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f0f0f0;
+    opacity: 1;
+    display: block;
+    transition: opacity .5s ease-in-out;
+}
+
+#preloader-message {
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#spinner {
+    position: relative;
+    animation: deform 2s linear infinite;
+}
+
+@keyframes deform {
+    0% {
+        border-radius: 10%;
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        border-radius: 100%;
+        transform: rotate(180deg) scale(0.8);
+    }
+
+    100% {
+        border-radius: 10%;
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* preloader end */
+
 ::-webkit-scrollbar {
     width: 10px;
 }

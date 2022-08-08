@@ -168,7 +168,7 @@ document.getElementById('whoamicode').addEventListener('keydown', (e) => {
             // response comment
             document.getElementById('dev').innerHTML = "// Yay! Bonus jokes unlocked!";
             document.getElementById('dev').style.opacity = '1';
-            
+
             document.getElementById('whoamicode').style.borderColor = '#4BB543';
             setTimeout(() => {
                 document.getElementById('whoamicode').style.borderColor = 'transparent';
@@ -203,5 +203,19 @@ document.getElementById('whoamicode').addEventListener('mouseleave', () => {
     document.getElementById('whoamicode').style.borderColor = 'transparent';
 });
 
+setTimeout(() => {
+    document.getElementById('preloader-message').innerHTML = "Meanwhile, try humming your fav song.";
+}, 3000);
+
 //window onload event for bg change on reload
-window.onload = onScrolle();
+window.onload = () => {
+    onScrolle(); //for bg change corresponding to section
+
+    document.getElementById('preloader').style.opacity = '0';
+    setTimeout(() => {
+        document.getElementById('preloader').style.display = 'none';
+    }, 501);
+
+
+}
+
