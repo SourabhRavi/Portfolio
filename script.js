@@ -19,7 +19,6 @@ function onScrolle() {
     document.body.style.background = section.el.getAttribute('data-bg');
 }
 
-
 // bg change when scroll=0
 window.addEventListener('scroll', function () {
     if (window.scrollY == 0) {
@@ -216,7 +215,4 @@ window.onload = () => {
     setTimeout(() => {
         document.getElementById('preloader').style.display = 'none';
     }, 501);
-
-
 }
-

@@ -45,6 +45,28 @@
     animation: deform 2s linear infinite;
 }
 
+#whoami input {
+    animation: borderBlink 1.5s linear infinite;
+}
+
+#whoami input:focus {
+    animation: none;
+}
+
+@keyframes borderBlink {
+    0% {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: rgba(39, 39, 39, 0.4);
+    }
+
+    100% {
+        border-color: transparent;
+    }
+}
+
 @keyframes deform {
     0% {
         border-radius: 10%;
@@ -490,6 +512,9 @@ h1 {
     color: #272727;
     background: #BEBEBE;
     border: 2px solid #272727;
+}
+
+#projects .card-link {
     padding: 40px;
     height: 327px;
     display: grid;
